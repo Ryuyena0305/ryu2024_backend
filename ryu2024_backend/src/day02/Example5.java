@@ -65,7 +65,7 @@ public class Example5 {
 //				int res7_1 = num6/100000;
 //				int res7_2 = (num6%100000)/10000;
 //				int res7_3 = (num6%10000)/1000;
-//				System.out.printf(" [7]십만원: %d장 만원 : %d장 천원 : %d장",res7_1,res7_2,res7_3);
+//				System.out.printf(" [7]십만원: %d장 만원 : %d장 천원 : %d장",res7_1,res7_2,re_3);
 //				
 		// [지문8] 1차점수 와 2차점수 각각 입력받아서 
 		// -> 총점이 150점이상이면 '합격' 아니면 '불합격' 으로 console탭에 출력하시오.
