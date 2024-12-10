@@ -1,0 +1,19 @@
+[ 콘솔 출력 ]
+
+	1. System.out.println()
+	2. System.out.print()
+	3. System.out.printf()
+	
+[ 제어/이스케이프 문자]
+	
+[ 콘솔 입력 ]
+	준비물 : Scanner scan = new Scanner(System.in);
+		- 입력객체 생성시 주의할 점 : class파일의 1개만 존재해도 여러번 입력받을 수 있다.
+	사용 : scan.nextXXX()
+	
+	입력함수 : 
+		.next(), .nextLine(), .nextByte(),
+		.nextShort(), .nextInt(), .nextLong(),
+		.nextFloat(), .nextDouble() etc
+		
+		
