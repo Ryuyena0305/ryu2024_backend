@@ -6,7 +6,7 @@ public class Example5 {
 
 	public static void main(String[] args) {
 //		//[지문1] next() 점수로 국어,영어,수학 점수를 각 입력받아서 각 변수에 저장하고 총점과 평균을 계산하여 콘솔에 출력하시오.
-	Scanner scan = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
 //		System.out.println("[1]국어 점수 : ");
 //		int kor = scan.nextInt();
 //		System.out.println("[1]영어 점수 : ");
@@ -57,9 +57,9 @@ public class Example5 {
 //				boolean res6 = (num5%2==1&&num5%7==0)?true:false;
 //				System.out.println("[6]결과 :" + res6);
 //				
-		//[지문7] 십만원 단위의 금액을 입력받아 입력받은 금액의 지폐수를 console탭에 출력하시오.
-		          // -> 입력 예] 356789 입력시 , 출력 예] 십만원:3장 만원:5장 천원6장
-				
+		// [지문7] 십만원 단위의 금액을 입력받아 입력받은 금액의 지폐수를 console탭에 출력하시오.
+		// -> 입력 예] 356789 입력시 , 출력 예] 십만원:3장 만원:5장 천원6장
+
 //				System.out.println("[7]금액 : ");
 //				int num6 = scan.nextInt();
 //				int res7_1 = num6/100000;
@@ -67,17 +67,16 @@ public class Example5 {
 //				int res7_3 = (num6%10000)/1000;
 //				System.out.printf(" [7]십만원: %d장 만원 : %d장 천원 : %d장",res7_1,res7_2,res7_3);
 //				
-		// [지문8] 1차점수 와 2차점수 각각 입력받아서 
+		// [지문8] 1차점수 와 2차점수 각각 입력받아서
 		// -> 총점이 150점이상이면 '합격' 아니면 '불합격' 으로 console탭에 출력하시오.
-				
-				System.out.println("[8]1차 점수 : ");
-				int num7 = scan.nextInt();
-				System.out.println("[8]2차 점수 : ");
-				int num8 = scan.nextInt();
-				int sum2 = num7+num8;
-				System.out.println(sum2>=150?"합격":"불합격");
-				
-				
+
+			System.out.println("[8]1차 점수 : ");
+			int num7 = scan.nextInt();
+			System.out.println("[8]2차 점수 : ");
+			int num8 = scan.nextInt();
+			int sum2 = num7 + num8;
+			System.out.println(sum2 >= 150 ? "합격" : "불합격");
+
 	}
 
 }
