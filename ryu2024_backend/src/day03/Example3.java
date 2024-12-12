@@ -42,7 +42,7 @@ public class Example3 { //class s
 		}else if(age<20) {//아니고 age값이 14초과 이면서 20미만 이면
 			charge =2500;
 			System.out.println("중,고등학생 입니다.");
-		}else if(age>=60){
+		}else if(age>=60){//[1분복습]
 			charge = 0;
 			System.out.println("경로우대입니다.");
 			
@@ -53,6 +53,24 @@ public class Example3 { //class s
 		}
 		System.out.println("입장료는 "+charge+"원 입니다.");
 
+		
+		
+		//[p.100 나혼자 코딩]
+		int score=79; //성적 임의
+		char grade;
+		
+		if (score<=100&&score>=90) { //만약 성적이 100~90
+			grade = 'A';
+		}else if(score>=80) {
+			grade = 'B';
+		}else if(score>=70) {
+			grade = 'C';
+		}else if(score>=60) {
+			grade = 'D';
+		}else {
+			grade='F';
+		}
+		System.out.printf("%d은 %c입니다.",score,grade);
 	}//main e
 
 }//class e
