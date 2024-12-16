@@ -23,6 +23,9 @@ public class Example2 {
 		int colaNum = 10;
 		int ciderNum = 10;
 		int fantaNum = 10;
+		int colaCount =0;
+		int ciderCount =0;
+		int fantaCount =0;
 		int colaPrice = 1000;
 		int ciderPrice = 1500;
 		int fantaPrice = 2000;
@@ -33,29 +36,35 @@ public class Example2 {
 			int selectNum = scan.nextInt();
 		
 			if (selectNum == 1) {
+				System.out.println("콜라를 선택했습니다.");
 				if (colaNum == 0) {
 					System.out.println("재고가 부족합니다.");
 				} else {
 					colaNum = colaNum-1;
+					colaCount++;
 				}
 			} else if (selectNum == 2) {
+				System.out.println("사이다를 선택했습니다.");
 				if (ciderNum == 0) {
 					System.out.println("재고가 부족합니다.");
 				} else {
 					ciderNum = ciderNum-1;
+					ciderCount++;
 				}
 
 			} else if (selectNum == 3) {
+				System.out.println("환타를 선택했습니다.");
 				if (fantaNum == 0) {
 					System.out.println("재고가 부족합니다.");
 				} else {
 					fantaNum = fantaNum-1;
+					fantaCount++;
 
 				}
 
 			} else if (selectNum == 4) {
-				System.out.printf("콜라%d개, 사이다%d개, 환타 %d개 총 금액 : %d원", 10 - colaNum, 10 - ciderNum, 10 - fantaNum,
-						(10 - colaNum) * 1000 + (10 - ciderNum) * 1500 + (10 - fantaNum) * 2000);
+				System.out.println("결제를 선택했습니다.");
+				System.out.printf("콜라%d개, 사이다%d개, 환타 %d개 총 금액 : %d원\n", colaCount, ciderCount,fantaCount,colaCount * colaPrice +ciderCount * ciderPrice + fantaCount * fantaPrice);
 
 			}
 
