@@ -65,7 +65,9 @@ public class Example2 {
 			} else if (selectNum == 4) {
 				System.out.println("결제를 선택했습니다.");
 				System.out.printf("콜라%d개, 사이다%d개, 환타 %d개 총 금액 : %d원\n", colaCount, ciderCount,fantaCount,colaCount * colaPrice +ciderCount * ciderPrice + fantaCount * fantaPrice);
-
+				colaCount=0;fantaCount=0;ciderCount=0;
+				
+	
 			}
 
 		}
