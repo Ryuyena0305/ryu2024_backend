@@ -23,35 +23,64 @@ public class Example2 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		Product cola = new Product();
+		cola.name = "콜라";
+		cola.price = 1000;
+		cola.stock = 10;
 		Product cider = new Product();
+		cider.name = "사이다";
+		cider.price = 1500;
+		cider.stock = 10;
 		Product fanta = new Product();
-		String cart= null;
-		
-		while(true) {
-			System.out.println(" 장바구니에 담을 재고를 선택하거나 결제하세요 1.콜라 2.사이다 3.환타 4. 결제.");
+		fanta.name = "환타";
+		fanta.price = 2000;
+		fanta.stock = 10;
+		// +멤버변수는 객체 생성시 초기화를 생략하면 자동으로 기본값이 대입된다.(지역변수 x)
+		// 정수 : 0, 실수 : 0.0,논리 : false, 클래스타입 : null
+		// Product 객체 생성시 cart 멤버변수에는 자동으로 0이 대입된다.
+
+		while (true) {
+			System.out.println(" 장바구니에 담을 재고를 선택하거나 결제하세요 \n1.콜라 2.사이다 3.환타 4. 결제 : ");
 			int selectNum = scan.nextInt();
-			
-			if(selectNum ==1) {
+
+			if (selectNum == 1) {
 				System.out.println("콜라를 선택했습니다.");
 				if (cola.stock == 0) {
 					System.out.println("재고가 부족합니다.");
 				} else {
-					cola.colaNum = Drink1.colaNum-1;
-					cola.stock++;
-				
-			}
-				if(selectNum ==2) {
-					System.out.println("사이다를 선택했습니다.");
+					cola.stock--;
+					cola.cart++;
+
 				}
-					if(selectNum ==3) {
-						System.out.println("환타를 선택했습니다.");
-					}
-						if(selectNum ==4) {
-							System.out.println("결제를 선택했습니다.");
-						}
-							
 			}
+			if (selectNum == 2) {
+				System.out.println("사이다를 선택했습니다.");
+				if (cider.stock == 0) {
+					System.out.println("재고가 부족합니다.");
+				} else {
+					cider.stock--;
+					cider.cart++;
+				}
+			}
+			if (selectNum == 3) {
+				System.out.println("환타를 선택했습니다.");
+
+				if (fanta.stock == 0) {
+					System.out.println("재고가 부족합니다.");
+				} else {
+					fanta.stock--;
+					fanta.cart++;
+				}
+			}
+			if (selectNum == 4) {
+				System.out.println("결제를 선택했습니다.");
+				System.out.printf("콜라%d개, 사이다%d개, 환타 %d개 총 금액 : %d원\n", cola.cart, cider.cart, fanta.cart,
+						cola.cart * cola.price + cider.cart * cider.price + fanta.cart * fanta.price);
+				cola.cart = 0;
+				fanta.cart = 0;
+				cider.cart = 0;
+
+			}
+
 		}
 	}
-
 }
