@@ -55,13 +55,13 @@ public class Example3 {
 				String checkPw = scan.next();
 			
 				
-				if( info1.id.equals(checkId) &&info1.pw.equals(checkPw)){
+				if( info1.id!=null&&info1.id.equals(checkId) &&info1.pw!=null&&info1.pw.equals(checkPw)){
 					System.out.println("로그인 성공");
 			
-				}else if(info2.id.equals(checkId) &&info2.pw.equals(checkPw)){
+				}else if(info2.id!=null&&info2.id.equals(checkId) &&info2.pw!=null&&info2.pw.equals(checkPw)){
 					System.out.println("로그인 성공");
 				
-				}else if(info3.id.equals(checkId) &&info3.pw.equals(checkPw)){
+				}else if(info3.id!=null&&info3.id.equals(checkId) &&info3.pw!=null&&info3.pw.equals(checkPw)){
 					System.out.println("로그인 성공");
 				}else {
 					System.out.println("로그인 실패");
