@@ -21,4 +21,13 @@ public class Student {//객체를 만들기위한 설계 클래스, 클래스는
 	public void setStudentName(String name) {
 		studentName = name;
 	}
+	
+	//--main 함수 : 프로그램을 시작하기 위해 호출하는 함수, 클래스의 메소드는 아니다.
+	//main + 자동완성
+	public static void main(String[] args) {
+		Student studentAhn = new Student();//객체 생성
+		studentAhn.studentName="안연수"; //객체내 멤버변수에 값을 대입
+		System.out.println(studentAhn.studentName);
+		System.out.println(studentAhn.getStudentName());
+	}
 }
