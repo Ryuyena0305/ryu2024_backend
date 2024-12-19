@@ -20,7 +20,7 @@ public class Example2 {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		UserInfo[] userInfo = new UserInfo[100];
+		UserInfo[] member = new UserInfo[100];
 		LoginFunction lf = new LoginFunction();
 		while (true) {
 			System.out.println("1.회원가입 2.로그인 : ");
@@ -28,11 +28,11 @@ public class Example2 {
 			int choose = scan.nextInt();
 
 			if (choose == 1) {
-				lf.userInfoAdd(userInfo);
+				lf.userInfoAdd(member);
 				
 
 			} else if (choose == 2) {
-				lf.userInfoLogin(userInfo);
+				lf.userInfoLogin(member);
 
 			}
 		}
