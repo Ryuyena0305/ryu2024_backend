@@ -23,7 +23,7 @@ import java.util.Scanner;
 public class Example4 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		LogInfoDto LID = new LogInfoDto();
+		LoginFun LIF = new LoginFun();
 		LogInfoDto[] lid = new LogInfoDto[100];
 		
 		while (true) {
@@ -34,35 +34,19 @@ public class Example4 {
 			if (choose == 1) {
 				System.out.println("1. 회원가입 > ");
 				System.out.print("ID : ");
-				LID.setId(scan.next());
+				String id = scan.next();
 				System.out.print("PW : ");
-				LID.setPw(scan.next());
+				String pw = scan.next();
 				System.out.print("NICKNAME : ");
-				LID.setNickname(scan.next());
-				System.out.println("회원가입 완료");
-				System.out.println(LID.getId());
-				for(int index=0;index<=lid.length-1;index++) {
-					if(lid[index] == null) {
-						lid[index]=LID;
-						break;
-					}
-				}
+				String nickname = scan.next();
+				LogInfoDto LID = new LogInfoDto(id,pw,nickname);
+				LIF.logup(lid,LID);
+				
 				
 
 			} else if (choose == 2) {
-				System.out.println("2. login > ");
-				System.out.print("ID : ");
-				String id=scan.next();
-				System.out.print("PW : ");
-				String pw =scan.next();
-				System.out.println(LID.getId());
-				if(LID.getId()!=null&&id.equals(LID.getId())&&pw.equals(LID.getPw())) {
-					System.out.println("로그인성공");
-				}else {
-					System.out.println("로그인실패");
 				
-				}
-				
+				LIF.login(lid);
 
 			}
 		}
