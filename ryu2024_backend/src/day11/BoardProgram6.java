@@ -19,16 +19,19 @@ import java.util.Scanner;
 public class BoardProgram6 { //class s
 
 	public static void main(String[] args) { //main start
+		
+		BoardDto[]  boards = new BoardDto[100];
+		BoardService bs = new BoardService();
 		Scanner scan = new Scanner(System.in); //Scanner쓰는 위치
 		
 		while(true) {//while s
 			System.out.print("1.등록 2.출력");
 			int choose = scan.nextInt();
 			if(choose == 1) {
-				
+				bs.boardAdd(scan,boards);
 				//등록함수 호출
 			}else if(choose==2){
-				
+				bs.boardPrint(boards);
 				//출력함수 호출
 			}
 
