@@ -33,6 +33,32 @@ class Student1{//class s
 	public void setStudentName(String name) {studentName = name;}
 	
 }//class e
+class Student2{//class s
+	//+정적변수 : 프로그램 시작될때 1번 생성된다.
+	private static int serialNum =1000;
+	//+멤버변수 : 인스턴스 생성할때마다 각 변수가 생성된다.
+	public int studentID;
+	public String studentName;
+	public int grade;
+	public String address;
+	//+생성자
+	public Student2() {
+		serialNum++; //학생이 생성될때마다 1증가
+		studentID = serialNum;//증가된 값을 학번 멤버변수에 대입한다.
+	}
+	public static int getSerialNum() {
+		int i =10;
+		return serialNum;
+	}
+	public static void setSerial(int serialNum) {
+		//this.serialNum = serialNum;
+		Student2.serialNum =serialNum;
+	}
+	//+메소드
+	public String getStudentName() {return studentName;}
+	public void setStudentName(String name) {studentName = name;}
+	
+}//class e
 
 public class Example3 {//class s
 	
@@ -66,6 +92,10 @@ public class Example3 {//class s
 		//예3]클래스 변수
 		System.out.println(Student.serialNum);
 		System.out.println(Student1.serialNum);
+		
+		//예4]
+		//Studenr2.serialNum; //static변수도 private 외부클래스 접근 불가능s
+		System.out.println(Student2.getSerialNum());
 	
 	
 	}
