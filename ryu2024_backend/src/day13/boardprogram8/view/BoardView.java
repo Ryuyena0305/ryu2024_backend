@@ -2,6 +2,9 @@ package day13.boardprogram8.view;
 
 import java.util.Scanner;
 
+import day13.boardprogram8.controller.BoardController;
+import day13.boardprogram8.model.dto.BoardDto;
+
 public class BoardView {
 	// + 싱글톤
 	private BoardView() {
@@ -33,9 +36,39 @@ public class BoardView {
 	// 2. 글쓰기 입출력 메소드//함수명 임의로
 	public void write() {
 		System.out.println("[글쓰기페이지]");
-	}//f e
+		
+		//[1] 입력
+		System.out.println("제목 : "); String title = scan.next();
+		System.out.println("내용 : "); String content = scan.next();
+		System.out.println("작성자 : "); String writer = scan.next();
+		
+		//[2] 객체화
+		BoardDto boardDto = new BoardDto(title, content, writer);
+		
+		//[3] 컨트롤러에게 저장할 객체를 전달하고 결과를 응답받기
+		boolean result = BoardController.getInstance().write(boardDto);
+		//[4]
+		if(result ==true) {
+			System.out.println("글쓰기 성공");
+		}else {
+			System.out.println("글쓰기 실패");
+		}
+		}//f e
 	// 3. 모든글 입출력 메소드//함수명 임의로
 	public void findAll() {
 		System.out.println("[모든 글 출력 페이지]");
+		//[1] 컨트롤러에게 모든 게시물정보를 요청하고 결과 받기
+		BoardDto[] result = BoardController.getInstance().findAll();
+		//[2] 요청결과 출력하기
+		for(int index=0;index<=result.length-1;index++) {
+			BoardDto board = result[index];
+			if(board !=null) {
+				System.out.printf("%d, %s, %s, %s",
+						index,
+						board.getTitle(),
+						board.getContent(),
+						board.getWrite());
+			}//if end
+		}//for end
 	}//f e
-}
+}//class end
