@@ -20,7 +20,6 @@ public class BoardController {
 		return result;
 		
 	}
-	
 	//2.게시물 출력 제어 함수
 	public ArrayList<BoardDto> readAll(){
 		//[1] Dao에게 처리 결과를 요청하고 받는다.
