@@ -1,7 +1,6 @@
 package day14.boardprogram9.model.dao;
 
 import java.util.ArrayList;
-
 import day14.boardprogram9.model.dto.BoardDto;
 
 public class BoardDao {
@@ -30,6 +29,15 @@ public class BoardDao {
 	}
 	
 	//3. 게시물 수정 처리 함수
+	public boolean update(int uIndex,BoardDto boardDto) {
+		//[1] 리스트에 존재하지 않는 인덱스이면 실패
+		if(uIndex>boards.size()-1||uIndex<0) {
+			return false;
+		}
+		//[2] 지정한 인덱스 새로운 객체 타입 , .set(인덱스,새로운요소)함수
+		boards.set(uIndex, boardDto);
+		return true;
+	}
 	
 	//4. 게시물 삭제 처리 함수
 	public boolean delete(int dIndex) {

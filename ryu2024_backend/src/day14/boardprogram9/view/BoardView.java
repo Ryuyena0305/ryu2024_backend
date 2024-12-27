@@ -73,14 +73,15 @@ public class BoardView {
 	public void update() {
 		System.out.println("U");
 		//[1] 수정할 게시물 정보를 입력받는다
-		System.out.println("title"); String title = scan.next();
-		System.out.println("content"); String content= scan.next();
-		System.out.println("writer"); String writer = scan.next();
-		//[2] 게시물 정보를 하나의 객체로 만든다. 생성자를 이용하여 빠른 초기화
+		System.out.println("update index : "); int uIndex = scan.nextInt();
+		System.out.println("update title : "); String title = scan.next();
+		System.out.println("update content : "); String content= scan.next();
+		System.out.println("update writer : "); String writer = scan.next();
+		//[2] 입력받은 값들을 객체로 받는다.
 		BoardDto boardDto = new BoardDto(title,content,writer);
 		//[3] 객체를 컨트롤러에게 전달하고 쓰기 결과는 받는다.
-		boolean result = BoardController.getInstance().create(boardDto);
-		//[4] 받은 결과에 따른 메세지를 출력한다.
+		boolean result = BoardController.getInstance().update(uIndex,boardDto);
+		//[4] 결과에 따른 메세지를 출력한다.
 		if(result) {System.out.println(" update success");}
 		else {System.out.println("update fail");}
 	}

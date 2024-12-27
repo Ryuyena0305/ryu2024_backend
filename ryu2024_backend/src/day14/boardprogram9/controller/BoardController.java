@@ -31,8 +31,11 @@ public class BoardController {
 	}
 	
 	//3.게시물 수정 제어 함수
-	public boolean update(BoardDto boardDto) {
-		
+	public boolean update(int uIndex,BoardDto boardDto) {
+		//[1] 매개변수 받은 값들을 Dao에게 전달하고 처리 결과를 받는다.
+		boolean result = BoardDao.getInstance().update(uIndex, boardDto);
+		//[2] View에게 결과를 반환한다.
+		return result;
 	}
 	
 	//4.게시물 삭제 제어 함수
