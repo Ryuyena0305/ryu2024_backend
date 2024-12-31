@@ -173,7 +173,7 @@ constraint foreign key (mno)references member(mno)
 create database program;
     use program;
     create table Kategorie(
-	KategorieNum int auto_increment,
+	KategorieNum int auto_increment primary key,
     KategorieName char(30)
     );
     
@@ -186,9 +186,10 @@ create database program;
     );
     
     create table orderList(
-     orderNum int auto_increment,
+     orderNum int auto_increment primary key,
      menuDate date
     );
+    
     create table orderListDetail(
     orderDetailNum int auto_increment,
      orderNum int ,
@@ -197,11 +198,7 @@ create database program;
     constraint foreign key (menuNum)references menu(menuNum),
     constraint primary key(orderDetailNum)
     );
-
-
-
     
-
-
-
-
+    show tables;
+    select * from kategorie;
+    
