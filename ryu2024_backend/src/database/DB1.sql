@@ -150,7 +150,56 @@ constraint primary key(bno), #게시물번호를 pk필드로 선정
 mno int, #FK필드 #회원번호Fk #참조할 필드와 동일한 타입으로 선정
 constraint foreign key (mno)references member(mno) 
 #board 테이블의 mno필드가 member 테이블의 mno필드를 참조한다.
-)
+);
+
+/*
+	https://www.youtube.com/watch?v=ksuYwD1oC3A
+	위 링크와 같은 프로그램을 만들기 위한 DB 설계를 하시오.
+	[요구사항]
+	1. 여러개 카테고리중에 카테고리를 선택을 해서 카테고리 별로 제품들을 출력/확인 한다.
+	2. 해당 제품을 선택해서 수량 입력받아 주문처리 한다. 단, 하나의 주문의 여러개 제품을 주문할수있다.
+	3. 주문번호를 받아서 대기한다.
+	4. 설계 조건
+		1. [ 메모리 설계 필수 속성 ]	
+		- 식별자코드 , 카테고리명 , 가격 , 제품명 , 주문수량 , 주문날짜 하되 추가 가능 합니다.
+		2. 테이블간의 데이터 중복을 최소화한다.
+		3. 총 테이블은 3개 이상으로 설계한다.
+		4. 적절한 타입과 제약조건을 최대한 활용하시오.
+        5. DB명 , 테이블명, 속성명은 임의로 합니다. 
+        
+	* 제출 : 카카오톡방에 SQL 과제 코드가 존재하는 본인 git 상세주소 제출 
+*/
+
+create database program;
+    use program;
+    create table Kategorie(
+	KategorieNum int auto_increment,
+    KategorieName char(30)
+    );
+    
+    create table menu(
+     menuNum int auto_increment,
+     menuName char(30) not null unique,
+     KategorieNum int,
+     constraint foreign key (KategorieNum)references Kategorie(KategorieNum),
+     constraint primary key(menuNum)
+    );
+    
+    create table orderList(
+     orderNum int auto_increment,
+     menuDate date
+    );
+    create table orderListDetail(
+    orderDetailNum int auto_increment,
+     orderNum int ,
+     menuNum int,
+	constraint foreign key (orderNum)references orderList(orderNum),
+    constraint foreign key (menuNum)references menu(menuNum),
+    constraint primary key(orderDetailNum)
+    );
+
+
+
     
 
 
