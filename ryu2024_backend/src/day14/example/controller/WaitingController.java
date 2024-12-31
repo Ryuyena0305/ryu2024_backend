@@ -30,8 +30,10 @@ public class WaitingController {
 		boolean result = WaitingDao.getInstance().update(waitingDto);
 		return result;
 	}
-	public boolean delete() {
-		boolean result = WaitingDao.getInstance().delete();
+	public boolean delete(WaitingDto waitingDto) {
+		String id = MemberController.getInstance().getLoginId();
+		waitingDto.setId(id);
+		boolean result = WaitingDao.getInstance().delete(waitingDto);
 		return result;
 	}
 }

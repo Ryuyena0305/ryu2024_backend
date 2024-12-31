@@ -38,8 +38,13 @@ public class MemberDao {
 		memberDto.setId(id);
 		
 		for(int index=0;index<=members.size()-1;index++) {
-			members.set(index, memberDto);
+			if(members.get(index).getId().equals(id)) {
+			
+			members.get(index).setName(memberDto.getName());
 			System.out.println( memberDto.getName() );
+			System.out.println(memberDto.getId());
+			System.out.println(memberDto.getPw());
+			}
 		}
 		return true;
 	}
@@ -49,7 +54,12 @@ public class MemberDao {
 		System.out.println( pw );
 		
 		for(int index=0;index<=members.size()-1;index++) {
-			if(members != null &&id.equals(members.get(index).getId())&&pw.equals(members.get(index).getPw())){
+			System.out.println(index);
+			System.out.println(members.get(index).getId());
+			System.out.println(members.get(index).getPw());
+			if( id.equals(members.get(index).getId())&&pw.equals(members.get(index).getPw())){
+				System.out.println( id );
+				System.out.println( pw );
 				members.remove(index);
 				return true;
 			}

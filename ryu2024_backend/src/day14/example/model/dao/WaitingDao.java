@@ -22,14 +22,22 @@ public class WaitingDao {
 	}
 	public boolean update(WaitingDto waitingDto) {
 		for(int i = 0; i<waitings.size(); i++) {
-		waitings.set(i, waitingDto);
+		if (waitings.get(i).getId() == waitingDto.getId()) {
+		waitings.set(i, waitingDto);  
+		return true;  
 		}
-		return true;
 	}
-	public boolean delete() {
-		for(int i = 0; i <waitings.size(); i++) {
-		waitings.remove(i);
+		return false;
+	}
+	public boolean delete(WaitingDto waitingDto) {
+		for (int i = 0; i < waitings.size(); i++) {
+	        // Assuming WaitingDto has a unique identifier `id`
+	        if (waitings.get(i).getId() == waitingDto.getId()) {
+	            waitings.remove(i);  
+	            return true;  
+	    }
+	      
 		}
-		return true;
-	}
+		return false;
+}
 }

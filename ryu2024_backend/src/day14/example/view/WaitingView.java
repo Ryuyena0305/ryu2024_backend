@@ -53,7 +53,8 @@ public class WaitingView {
 		else {System.out.println("수정 실패");}
 	}
 	public void delete() {
-		boolean result = WaitingController.getInstance().delete();
+		WaitingDto waitingDto = new WaitingDto();
+		boolean result = WaitingController.getInstance().delete(waitingDto);
 		if(result == true) {System.out.println("삭제 성공");}
 		else {System.out.println("삭제 실패");}
 	}
