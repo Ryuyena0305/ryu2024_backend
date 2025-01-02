@@ -6,7 +6,7 @@ import day14.example.controller.MemberController;
 import day14.example.model.dto.MemberDto;
 
 public class MemberView {
-	private MemberView() {
+	private MemberView() { 
 	}
 
 	private static MemberView instance = new MemberView();
