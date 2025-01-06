@@ -36,6 +36,26 @@
 
 [ 이클립스 실행 ]
     1. 워크스페이스선택, 코드를 저장할 폴더
+    
+[ 이클립스 자리 변경할 때 ]
+1. MYSQL server
+2. 이클립스
+	-Eclipse IDE for JAVA Developers - 2024-09
+	[PC변경]
+		1. 기존작업했던 PC에서 최종 commit/push
+	[새로운PC]
+		1. [상단메뉴] -> [window] -> [show view]
+		2. other -> git폴더 -> [git Repositories]
+		3.'clone a git Repository' 클릭
+		4. 'Clone URI'클릭 -> [next]클릭
+		5.
+			URI : 본인의 GIT 주소
+			User : 본인 GIT 아이디
+			Password : 본인 토큰 번호
+			* Store in Secure Store 체크
+			[Next]-> [Next]->[Finish]
+		6. [git Repositories] 창에서 'clone 리포지토리명 확인'
+		7.리포지토리명 -> working Tree -> [프로젝트폴더명] 오른쪽 클릭 ->import project
 
 [ 프로젝트 생성 ]
     1. 상단 메뉴 [FILE] -> [NEW] -> [JAVA PROJECT] 클릭 
