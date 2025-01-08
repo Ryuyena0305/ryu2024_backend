@@ -3,24 +3,24 @@ create database moviereservation;
 use moviereservation;     
   
 create table member(
-		memberId int unsigned auto_increment , 
-    id varchar(30) not null unique ,
-    pw varchar(30) not null ,
+	memberId int unsigned auto_increment , 
+    id varchar(20) not null unique ,
+    pw varchar(20) not null ,
     name varchar(20) not null ,
-    birth varchar(13) not null unique , 
-     datetime default now() , 
+    birth date, 
+    mState bool,
     constraint primary key( memberId )
 ); 
 # [1] 회원테이블 샘플 레코드 삽입
-insert into member ( mid , mpwd , mname , mphone ) values( 'qwe123' , 'a123456' , '유재석' ,  '010-3333-3333' );
-insert into member ( mid , mpwd , mname , mphone ) values( 'asd123' , 'b123456' , '강호동' ,  '010-4444-4444' );
-insert into member ( mid , mpwd , mname , mphone ) values( 'zxc123' , 'c123456' , '신동엽' ,  '010-5555-5555' );
-insert into member ( mid , mpwd , mname , mphone ) values( 'vbn123' , 'd123456' , '서장훈' ,  '010-6666-6666' );
-insert into member ( mid , mpwd , mname , mphone ) values( 'rty123' , 'e123456' , '하하'   ,  '010-7777-7777' );
+insert into member ( id, pw ,name, birth,mState) values( 'admin' , '1234' , '최홍빈' , '1994-01-09' ,true);
+insert into member ( id, pw ,name, birth,mState) values( 'guest1' , '2345' , '이민수' , '1999-10-09' ,false);
+insert into member ( id, pw ,name, birth,mState) values( 'guest2' , '3456' , '장민우' , '2000-08-17' ,false);
+insert into member ( id, pw ,name, birth,mState) values( 'guest3' , '4567' , '류예나' , '2001-03-05' ,false);
 
 
 
     create table Kategorie(
-	KategorieNum int auto_increment primary key,
-    KategorieName char(30)
+	genreId int auto_increment primary key,
+    genreName char(10) not null,
+     constraint primary key( genreId )
     );
