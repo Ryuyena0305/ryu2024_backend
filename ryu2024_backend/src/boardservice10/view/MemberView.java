@@ -19,7 +19,7 @@ public class MemberView {
 			System.out.println("1. 회원가입 2. 로그인 3. 아이디찾기 4. 비밀번호 찾기");
 			int choose = scan.nextInt();
 			if(choose==1) {signup();}
-			else if(choose==2) {}
+			else if(choose==2) {login();}
 			else if(choose==3) {findId();}
 			else if(choose==4) {findPw();}
 		}//w e
@@ -45,8 +45,12 @@ public class MemberView {
 		MemberDto memberDto = new MemberDto();
 		memberDto.setMid(mid);
 		memberDto.setMpwd(mpwd);
-		MemberController.getInstance().login()(memberDto);
-		
+		boolean result = MemberController.getInstance().login(memberDto);
+		if(result) {
+			System.out.println("로그인 성공");
+		}else {
+			System.out.println("동일한 회원정보가 없습니다.");
+		}
 	}
 	
 	
@@ -95,8 +99,40 @@ public class MemberView {
 	}
 	//5.로그아웃 화면 메소드
 	public void logout() {
-		
+		MemberController.getInstance().logout();
+		System.out.println("로그아웃 되었습니다.");
 	}
 	
+	//6. 내 정보 보기 화면 메소드
+	public void myInfo() {
+		//1. 순서 : 1.입력 -> 2. 객체화 -> 3. 컨트롤러에게 전달하고 응답 결과 받기 -> 4. 컨트롤러의 결과에 따른 처리
+		//1/2 생략
+		//3. 
+		//받는곳  = MemberController.getInstance().myInfo(주는곳);
+		MemberDto result = MemberController.getInstance().myInfo();
+		//4.
+		System.out.println("========마이페이지========");
+		System.out.println("mid : "+result.getMid());
+		System.out.println("mname : "+result.getMname());
+		System.out.println("mphone : "+result.getMphone());
+		System.out.println("mdate : "+result.getMdate());
+		//서브메뉴
+		while(true) {
+		System.out.println("1. 회원수정 2.회원탈퇴 3.뒤로가기 : ");
+		int choose2 = scan.nextInt();
+		if(choose2==1){}
+		else if(choose2==2) {delete();}
+		else if(choose2==3) {break;}
+		}
+	}
+	//7. 회원탈퇴 화면 메소드
+	public void delete() {
+		System.out.println("정말 회원 탈퇴 하실건가요? 0:예 1:취소 ");
+		int choose3 =scan.nextInt();
+		if(choose3 == 0) {
+			MemberController.getInstance().delete();// - 탈퇴처리 컨트롤러 요청
+			logout();//탈퇴 처리시 로그아웃 하기
+		}
+	}
 
 }//c e
