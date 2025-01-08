@@ -122,7 +122,7 @@ public class MemberDao {
 		public MemberDto myInfo(int loginMno) {
 			try {
 			//[1] SQL 작성한다.
-			String sql = "delete * from member where mno= ? ";
+			String sql = "select * from member where mno= ? ";
 			//[2] DB와 연동된 곳에 SQL 기재한다.
 			PreparedStatement ps =conn.prepareStatement(sql);
 			//[*] 기재된 SQL에 매개변수 값 대입한다.
