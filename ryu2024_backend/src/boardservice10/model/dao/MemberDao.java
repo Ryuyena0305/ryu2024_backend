@@ -44,4 +44,12 @@ public class MemberDao {
 			
 			return false;
 		}
+		public String findId(MemberDto memberDto) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		public String findPW(MemberDto memberDto) {
+			// TODO Auto-generated method stub
+			return null;
+		}
 }

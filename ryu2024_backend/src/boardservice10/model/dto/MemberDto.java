@@ -75,6 +75,8 @@ public class MemberDto {
 		this.mdate = mdate;
 	}
 	
+	
+	
 	@Override
 	public String toString() {
 		return "MemberDto [mno=" + mno + ", mid=" + mid + ", mpwd=" + mpwd + ", mname=" + mname + ", mphone=" + mphone
