@@ -20,8 +20,8 @@ public class MemberView {
 			int choose = scan.nextInt();
 			if(choose==1) {signup();}
 			else if(choose==2) {}
-			else if(choose==3) {}
-			else if(choose==4) {}
+			else if(choose==3) {findId();}
+			else if(choose==4) {findPw();}
 		}//w e
 	}//f e
 	
@@ -37,7 +37,21 @@ public class MemberView {
 		else {System.out.println("[ 회원가입 실패 ]");}
 	}
 	
-	//2. 아이디찾기 화면 메소드
+	//2. 로그인 화면 메소드
+	public void login() {
+		//1. 입력 -> 2.객체화(선택) -> 3. 컨트롤러에 전달하고 응답결과 받기 -> 4. 컨트롤러의 결과에 따른 처리
+		System.out.println("아이디 : "); String mid=scan.next();
+		System.out.println("비밀번호 : "); String mpwd=scan.next();
+		MemberDto memberDto = new MemberDto();
+		memberDto.setMid(mid);
+		memberDto.setMpwd(mpwd);
+		MemberController.getInstance().login()(memberDto);
+		
+	}
+	
+	
+	
+	//3. 아이디찾기 화면 메소드
 	public void findId() {
 		//[1]입력
 		System.out.println("이름 : "); String mname=scan.next();
@@ -60,7 +74,7 @@ public class MemberView {
 		}
 	}// f e
 	
-	//3. 비밀번호찾기 화면 메소드
+	//4. 비밀번호찾기 화면 메소드
 	public void findPw() {
 		//[1]입력
 		System.out.println("아이디 : "); String mid=scan.next();
@@ -77,6 +91,10 @@ public class MemberView {
 		}else {
 			System.out.println("동일한 회원정보가 없습니다.");
 		}
+		
+	}
+	//5.로그아웃 화면 메소드
+	public void logout() {
 		
 	}
 	

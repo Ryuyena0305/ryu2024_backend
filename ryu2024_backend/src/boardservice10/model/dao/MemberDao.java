@@ -48,10 +48,13 @@ public class MemberDao {
 		//2. 아이디 찾기 SQL 처리 메소드
 		public String findId(MemberDto memberDto) {
 			try {
-			//[1] SQL작성한다.
-			String sql ="select mid from member where mname = '유재석' nd mphone = '010-3333-3333'";
+			//[1] SQL작성한다. //mname = '유재석' -->mname = ? mname은 어떤 값이 들어갈지 정해져 있지 않다. 매개변수
+			String sql ="select mid from member where mname = ? and mphone = ?";
 			//[2] DB와 연동된 곳에 SQL 기재  sql을 기재하는 방법 : conn.prepareStatement(SQL)
 			PreparedStatement ps = conn.prepareStatement(sql);
+				//ps.setString(1, "유재석"); ps.setString() : mname이 String 타입이라서
+				ps.setString(1, memberDto.getMphone());
+				ps.setString(2, memberDto.getMphone());
 			//[3] 기재된 SQL을 실행하고 결과를 받는다.
 			ResultSet rs = ps.executeQuery();
 			
@@ -71,9 +74,11 @@ public class MemberDao {
 		public String findPW(MemberDto memberDto) {
 			try {
 				//[1] SQL작성한다.
-				String sql ="select * from member where mid ='qwe123' and mphone ='010-3333-3333'";
+				String sql ="select * from member where mid =? and mphone = ?";
 				//[2] DB와 연동된 곳에 SQL 기재  sql을 기재하는 방법 : conn.prepareStatement(SQL)
 				PreparedStatement ps = conn.prepareStatement(sql);
+					ps.setString(1, memberDto.getMid());
+					ps.setString(2, memberDto.getMphone());
 				//[3] 기재된 SQL을 실행하고 결과를 받는다.
 				ResultSet rs = ps.executeQuery();
 				

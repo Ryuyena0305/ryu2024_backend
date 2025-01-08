@@ -11,10 +11,13 @@ public class MemberController {
 		return instance;
 
 	}
+	//1. 회원가입 컨트롤러 메소드
 	public boolean signup(MemberDto memberDto) {
 		boolean result = MemberDao.getInstance().signup(memberDto);
 		return result;
 	}
+	//2. 
+	public 
 	//3. 아이디 찾기  컨트롤러 메소드
 	public String findID(MemberDto memberDto) {
 			//* 다양한 유효성 검사를 넣을 예정
