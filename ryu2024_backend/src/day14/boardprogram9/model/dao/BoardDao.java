@@ -50,6 +50,11 @@ public class BoardDao {
 		//[2] 삭제 결과를 반환한다
 		return true;
 	}
+
+	public ArrayList<boardservice10.model.dto.BoardDto> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

@@ -28,8 +28,9 @@ public class MemberController {
 		if(result >0) {
 			loginMno=result;
 			return true;
-		}
+		}else {
 		return false;
+		}
 	}
 	
 	//3. 아이디 찾기  컨트롤러 메소드
@@ -61,6 +62,13 @@ public class MemberController {
 	public void delete() {
 		MemberDao.getInstance().delete(loginMno);
 	
+	}
+	//8. 회원수정 컨트롤러 메소드
+	public boolean update(MemberDto memberDto) {
+		//+누구를 수정할건지, 현재 로그인 회원이 수정하므로 현재로그인된 회원번호를 dto 담아주기
+		memberDto.setMno(loginMno);
+		boolean result = MemberDao.getInstance().update(memberDto);
+		return result;
 	}
 	
 	
