@@ -45,8 +45,8 @@ public class BoardView {
 			//-index는 0부터 리스트의 요소개수-1 까지 1씩 증가 반복
 			BoardDto boardDto = result.get(index); //index번째의 요소 객체를 꺼내기
 			System.out.print(boardDto.getBno()+"\t");
-			System.out.print(boardDto.getCno()+"\t");
-			System.out.print(boardDto.getMno()+"\t");
+			System.out.print(boardDto.getCname()+"\t");
+			System.out.print(boardDto.getMid()+"\t");
 			System.out.print(boardDto.getBdate()+"\t");
 			System.out.print(boardDto.getBtitle()+"\n");
 		}
@@ -59,7 +59,8 @@ public class BoardView {
 		BoardDto result = BoardController.getInstance().findById(bno);
 		//2. 결과
 		System.out.println(result.getBtitle());
-		System.out.println(result.getCno()+"\t"+result.getMno()+"\t"+result.getBview()+"\t"+result.getBdate());
+		System.out.println(result.getCname()+"\t"+result.getMid()+"\t"
+		+result.getBview()+"\t"+result.getBdate());
 		System.out.println(result.getBcontent());
 		//+추후에 댓글 출력되는 코드
 		

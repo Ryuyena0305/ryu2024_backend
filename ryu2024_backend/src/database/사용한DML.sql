@@ -22,6 +22,7 @@ insert into member ( mid , mpwd , mname , mphone ) values( 'zxc123' , 'c123456' 
 insert into member ( mid , mpwd , mname , mphone ) values( 'vbn123' , 'd123456' , '서장훈' ,  '010-6666-6666' );
 insert into member ( mid , mpwd , mname , mphone ) values( 'rty123' , 'e123456' , '하하'   ,  '010-7777-7777' );
 
+
 # [2] 카테고리 테이블 생성 
 create table category(
         cno int unsigned auto_increment ,
@@ -73,3 +74,5 @@ insert into reply(rcontent, mno, bno) values('하하하 댓글2', 3, 3);
 insert into reply(rcontent, mno, bno) values('하하하 댓글3', 4, 5);
 insert into reply(rcontent, mno, bno) values('하하하 댓글4', 5, 5);
 insert into reply(rcontent, mno, bno) values('하하하 댓글5', 1, 4);
+
+select * from member;
