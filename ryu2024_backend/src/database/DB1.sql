@@ -177,12 +177,9 @@ create database program;
     KategorieName char(30)
     );
     
-    create table menu(
-     menuNum int auto_increment,
-     menuName char(30) not null unique,
-     KategorieNum int,
-     constraint foreign key (KategorieNum)references Kategorie(KategorieNum),
-     constraint primary key(menuNum)
+    create table Kategorie(
+	KategorieNum int auto_increment primary key,
+    KategorieName char(30)
     );
     
     create table orderList(
