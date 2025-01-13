@@ -114,4 +114,4 @@ from product as p inner join pcategory as pc on p.카테고리번호_fk = pc.카
 select * from stock;
 select * from stock where 제품번호_fk = 1;
 select sum(재고수량) from stock where 제품번호_fk = 1;		# 제품번호 1번 인 레코드의 재고수량 속성값 총합계
-select sum(재고수량) as 합계 수량 from stock as s inner join product on s.제품번호_fk = p.제품번호_pk where 제품번호_fk =1;
+select sum(s.재고수량) as 합계수량 from stock as s inner join product on s.제품번호_fk = p.제품번호_pk where s.제품번호_fk =1;
