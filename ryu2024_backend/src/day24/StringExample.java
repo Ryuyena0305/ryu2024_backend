@@ -1,5 +1,7 @@
 package day24;
 
+import java.util.Arrays;
+
 public class StringExample {
 	public static void main(String[] args) {
 		//[1] 변수 : 2개 , 자료 : 1개, 
@@ -72,6 +74,32 @@ public class StringExample {
 		System.out.println( javaData );	
 		// 유재석
 		// 안녕하세요
+		//8. .subString(시작인덱스,[끝인덱스]);
+		String str9 = "012345-1230123".substring(0,6);
+		System.out.println(str9); //012345
 		
+		
+		String str10 = "012345-1230123".substring(7);
+		System.out.println(str10); //1230123;
+		
+		
+		//9. .split() :
+		String[] str11 = "012345-1230123".split("-");
+		System.out.println(str11[0]);//012345
+		System.out.println(str11[1]);//1230123
+		//CSV 형식
+		
+		//10. .indexOf("찾을문자열")
+		int findIndex = "자바 프로그래밍 언어".indexOf("자바");
+		System.out.println(findIndex);
+		
+		//11. .contains("찾을 문자열")
+		boolean findBool = "자바프로그래밍 언어".contains("자바");
+		System.out.println(findBool);
+		
+		//12. .getBytes()
+		byte[] str12 = "자바 프로그래밍 언어".getBytes();
+		System.out.println(str12);
+		System.out.println(Arrays.toString(str12));
 	}// m e
 }// c e
