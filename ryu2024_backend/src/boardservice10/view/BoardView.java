@@ -58,10 +58,10 @@ public class BoardView {
 		//1. 컨트롤러에게 요청하고 결과를 받는다.
 		BoardDto result = BoardController.getInstance().findById(bno);
 		//2. 결과
-		System.out.println(result.getBtitle());
-		System.out.println(result.getCname()+"\t"+result.getMid()+"\t"
-		+result.getBview()+"\t"+result.getBdate());
-		System.out.println(result.getBcontent());
+		System.out.println( result.getCname()+"\t"+result.getMid()+
+				"\t"+result.getBview()+"\t"+result.getBdate() );
+		System.out.println( result.getBtitle() );	
+		System.out.println( result.getBcontent()  );
 		//+추후에 댓글 출력되는 코드
 		while(true) {
 			System.out.println("1.뒤로가기 2.댓글작성 3.수정 4.삭제 : ");
