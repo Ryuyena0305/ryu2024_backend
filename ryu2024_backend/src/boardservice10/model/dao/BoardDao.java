@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import boardservice10.model.dto.BoardDto;
 
 public class BoardDao extends Dao {
+	
 	// +싱글톤
 	private BoardDao() {
 	}
@@ -80,5 +81,36 @@ public class BoardDao extends Dao {
 		return null;
 
 	}
+	//3.
+	public boolean write(BoardDto boardDto) {
+		try {
+		String sql = "insert into board(btitle,bcontent,cno,mno) values(?,?,?,?)";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, boardDto.getBtitle());
+		ps.setString(2, boardDto.getBcontent());
+		ps.setInt(3, boardDto.getCno());
+		ps.setInt(4, boardDto.getMno());
+		}catch(SQLException e) {System.out.println(e);}
+		return false;
+	}
+
+	public ArrayList<BoardDto> categoryAll() {
+		
+		ArrayList<BoardDto> list = new ArrayList<BoardDto>();
+		try {
+		String sql = "select * from category";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		while(rs.next()) {
+			BoardDto boardDto = new BoardDto();
+			boardDto.setCno(rs.getInt("cno"));
+			boardDto.setCname(rs.getString("cname"));
+			list.add(boardDto);
+		}
+		}catch(SQLException e) {System.out.println(e);}
+		return list;
+	}
+	
+
 
 }

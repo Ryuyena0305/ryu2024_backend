@@ -12,9 +12,36 @@ public class MemberController {
 
 	}
 	//1. 회원가입 컨트롤러 메소드
-	public boolean signup(MemberDto memberDto) {
-		boolean result = MemberDao.getInstance().signup(memberDto);
-		return result;
+	public int signup(MemberDto memberDto) {
+		//다양한 유효성검사
+		//1. 아이디 길이 검사
+		if( memberDto.getMid().length() < 5 || memberDto.getMid().length() > 30 ) {
+			return 1;
+		}
+		//2. 아이디 중복 검사
+		if( MemberDao.getInstance().check("mid", memberDto.getMid() ) ) {
+			return 7;
+		}
+		//3. 비밀번호 길이 검사
+		if( memberDto.getMpwd().length() < 5 || memberDto.getMpwd().length() > 30  ) {
+			return 2;
+		}
+		//4. 이름 길이 검사
+		if( memberDto.getMname().length() < 2  || memberDto.getMname().length() > 20 ) {
+			return 3;
+		}
+		//5. 연락처 - 검사,길이 검사
+		String[] phones = memberDto.getMphone().split("-");
+		if( phones.length != 3 || memberDto.getMphone().length() != 13 ) {
+			return 4;
+		}
+		//6. 연락처 중복 검사
+		if( MemberDao.getInstance().check("mphone", memberDto.getMphone() ) ) {
+			return 8;
+		}
+		boolean result = MemberDao.getInstance().signup( memberDto );
+		if( result ) {return 5;}
+		else { return 6;}
 	}
 	//2. 로그인 컨트롤러 메소드
 	private int loginMno = 0;//0이면 비로그인상태, 0 초고이면 로그인상태 = 번호 = 로그인된 회원번호

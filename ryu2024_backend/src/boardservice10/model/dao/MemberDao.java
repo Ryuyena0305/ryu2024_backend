@@ -11,9 +11,7 @@ import boardservice10.model.dto.MemberDto;
 public class MemberDao extends Dao{
 	
 	//+싱글톤
-		private MemberDao() {
-		
-		}
+		private MemberDao() {}
 		private static MemberDao instance = new MemberDao();
 		public static MemberDao getInstance() {
 			return instance;
@@ -21,19 +19,16 @@ public class MemberDao extends Dao{
 		//1.회원가입 SQL 처리 메소드
 		public boolean signup(MemberDto memberDto) {
 			try {
-			//[1] SQL작성한다.
+				// [1] SQL 작성한다.
 				String sql ="insert into member( mid , mpwd , mname , mphone ) "
 						+ "values( '"+memberDto.getMid()+"' , '"+memberDto.getMpwd()+"', '"+memberDto.getMname()+"', '"+memberDto.getMphone()+"' )";
-			//[2] DB와 연동된 곳에 SQL 기재  sql을 기재하는 방법 : conn.prepareStatement(SQL)
-			PreparedStatement ps = conn.prepareStatement(sql);
-			//[3] 기재된 SQL을 실행하고 결과를 받는다.
-			int count = ps.executeUpdate();
-			//[4] 결과에 따른 처리 및 반환을 한다
-			if(count==1) {return true;}
-			}catch(SQLException e) {
-				System.out.println(e);
-			}
-			
+				// [2] DB와 연동된 곳에 SQL 기재한다. 		- 연동된 db에 sql 기재하는 방법 : conn.prepareStatement( SQL )
+				PreparedStatement ps = conn.prepareStatement(sql);
+				// [3] 기재된 SQL를 실행하고 결과를 받는다. . 	- 기재된 sql를 실행하는 방법 : ps.executeUpdate()
+				int count = ps.executeUpdate();
+				// [4] 결과에 따른 처리 및 반환를 한다.
+				if( count == 1 ) { return true; }
+			}catch( SQLException e ) { System.out.println( e ); }
 			return false;
 		}
 		
@@ -164,6 +159,26 @@ public class MemberDao extends Dao{
 			}
 			return false;
 		}
+		//9. 특정한 속성의 중복값 검색
+		//field : 중복을 검사할 데이터의 속성명
+		//value : 중복을 검사할 데이터
+		public boolean check( String field,String value) {
+
+		try {
+				String sql = "select * from member where "+field+" = ? ";
+				PreparedStatement ps = conn.prepareStatement(sql);
+				ps.setString( 1 , value );
+				ResultSet rs = ps.executeQuery();
+				if( rs.next() ) return true;
+			}catch( SQLException e ) { System.out.println( e );}
+			return false;
+		}
 		
 	
 }
+//StringBuilder buider = new StringBuilder();
+//buider.append("select * from member where");
+//buider.append(field);
+//buider.append("=");
+//buider.append("'"+value+"'");
+//System.out.println(buider.toString());
